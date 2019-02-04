@@ -78,15 +78,6 @@ publishing {
   }
 }
 
-bintray {
-  publications = ['SpringSocialGooglePublication']
-
-  pkg {
-    userOrg = 'spring-social'
-    labels = ['spring', 'spring-social', 'google']
-  }
-}
-
 [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all', '-Xlint:-processing', '-Werror']
 
 test.systemProperty('java.awt.headless', 'true')

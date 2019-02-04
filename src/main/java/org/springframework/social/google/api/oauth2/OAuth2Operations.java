@@ -15,8 +15,6 @@
  */
 package org.springframework.social.google.api.oauth2;
 
-import org.springframework.social.google.api.plus.Person;
-
 /**
  * Defines operations for Google Accounts Authentication and Authorization. Requires OAuth scope(s) from the following:
  * <ul>
@@ -33,7 +31,7 @@ public interface OAuth2Operations {
   /**
    * Retrieves the authenticated user's Google user.
    *
-   * @return the retrieved {@link Person}
+   * @return the retrieved {@link UserInfo}
    */
   UserInfo getUserinfo();
 }

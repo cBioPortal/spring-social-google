@@ -38,8 +38,6 @@ import org.springframework.social.google.api.oauth2.OAuth2Operations;
 import org.springframework.social.google.api.oauth2.impl.OAuth2Template;
 import org.springframework.social.google.api.people.PeopleOperations;
 import org.springframework.social.google.api.people.impl.PeopleTemplate;
-import org.springframework.social.google.api.plus.PlusOperations;
-import org.springframework.social.google.api.plus.impl.PlusTemplate;
 import org.springframework.social.google.api.tasks.TaskOperations;
 import org.springframework.social.google.api.tasks.impl.TaskTemplate;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
@@ -63,7 +61,6 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 
   private String accessToken;
   private OAuth2Operations oauth2Operations;
-  private PlusOperations plusOperations;
   private TaskOperations taskOperations;
   private DriveOperations driveOperations;
   private CalendarOperations calendarOperations;
@@ -90,7 +87,6 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 
   private void initialize() {
     oauth2Operations = new OAuth2Template(getRestTemplate(), isAuthorized());
-    plusOperations = new PlusTemplate(getRestTemplate(), isAuthorized());
     taskOperations = new TaskTemplate(getRestTemplate(), isAuthorized());
     driveOperations = new DriveTemplate(getRestTemplate(), isAuthorized());
     calendarOperations = new CalendarTemplate(getRestTemplate(), isAuthorized());
@@ -122,11 +118,6 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
   @Override
   protected OAuth2Version getOAuth2Version() {
     return OAuth2Version.BEARER;
-  }
-
-  @Override
-  public PlusOperations plusOperations() {
-    return plusOperations;
   }
 
   @Override
